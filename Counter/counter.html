@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Counter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        div {
+            text-align: center;
+            margin: 200px;
+            font-size: 20px;
+        }
+        button {
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            width: 30px;
+            margin: 10px;
+        }
+        #inc {
+            background-color: rgb(77, 128, 196);
+        }
+        #dec{
+            background-color: #cc3333;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button id="dec">-</button>
+        <span id="count"></span>
+        <button id="inc">+</span>
+    </div>
+    <script>
+        let count = document.getElementById('count');
+        let incBtn = document.getElementById('inc');
+        let decBtn = document.getElementById('dec');
+        let counter = localStorage.getItem('counter');
+        count.textContent = counter;
+
+        incBtn.addEventListener('click',function() {
+            counter++;
+            localStorage.setItem('counter',counter)
+            count.textContent = counter;
+        })
+
+        decBtn.addEventListener('click',function() {
+            if(counter > 0) {
+                counter--;
+                localStorage.setItem('counter',counter)
+                count.textContent = counter;
+            } else 
+            count.textContent = 0;
+        })
+    </script>
+</body>
+</html>
